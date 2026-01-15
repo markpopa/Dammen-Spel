@@ -4,12 +4,22 @@ declare(strict_types=1);
 
 class Zet
 {
-    public Positie $vanPositie;
-    public Positie $naarPositie;
+    private Positie $vanPositie;
+    private Positie $naarPositie;
 
-    public function __construct(Positie $vanPositie, Positie $naarPositie)
+    private function __construct(Positie $vanPositie, Positie $naarPositie)
     {
         $this->vanPositie = $vanPositie;
         $this->naarPositie = $naarPositie;
+    }
+
+    public function getvanPositie()
+    {
+        return $this->vanPositie;
+    }
+
+    public function getnaarPositie()
+    {
+        return $this->naarPositie;
     }
 }
