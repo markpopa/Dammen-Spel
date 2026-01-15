@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class Steen extends AbstractSteen
+abstract class AbstractSteen
 {
     private string $kleur;
 
@@ -16,9 +16,6 @@ class Steen extends AbstractSteen
         return $this->kleur;
     }
 
-    public function kanAchteruitSlaan(): bool
-    {
-        return false;
-    }
+    abstract public function kanAchteruitSlaan(): bool;
 
 }

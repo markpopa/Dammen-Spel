@@ -2,7 +2,7 @@
 
 class Bord
 {
-    public array $vakjes = [];
+    private array $vakjes = [];
     
     public function __construct()
     {
@@ -27,6 +27,36 @@ class Bord
                 $this->vakjes[$rij][$kolom] = new Vak($kleur, $steen);
             }
         } 
+    }
+
+    public function getVakjes(): array
+    {
+        return $this->vakjes;
+    }
+
+    public function getVakje(int $x, int $y): Vak
+    {
+        return $this->vakjes[$y][$x];
+    }
+
+    public function setVakje(int $x, int $y, Vak $vak): void
+    {
+        $this->vakjes[$y][$x] = $vak;
+    }
+
+    public function getSteenOpPositie(Positie $positie): ?AbstractSteen
+    {
+        return $this->getSteenOpCoordinaten($positie->getX(), $positie->getY());
+    }
+
+    public function setSteenOpPositie(Positie $positie, AbstractSteen $steen): void
+    {
+        $this->vakjes[$positie->getY()][$positie->getX()]->setSteen($steen);
+    }
+
+    public function getSteenOpCoordinaten(int $x, int $y): ?AbstractSteen
+    {
+        return $this->vakjes[$y][$x]->getSteen();
     }
 
     public function printStatus(): void
