@@ -13,5 +13,25 @@ class Vak
         $this->steen = $steen;
     }
 
-    public function getKleur(): string
+    public function getKleur(): string 
+    {
+        return $this->kleur;
+    }
+
+    public function getSteen(): ?AbstractSteen 
+    {
+        return $this->steen;
+    }
+
+    public function setSteen(?AbstractSteen $steen): void
+    {
+        $this->steen = $steen;
+    }
+
+    public function isLeeg(): bool
+    {
+        return $this->steen === null;
+    }
+
+
 }
