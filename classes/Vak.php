@@ -13,5 +13,5 @@ class Vak
         $this->steen = $steen;
     }
 
-    public function
+    public function getKleur(): string
 }
