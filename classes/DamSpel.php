@@ -46,8 +46,8 @@ class DamSpel
 
             echo "De zet is geldig: ";
             echo strtoupper($huidigeSpeler) . " gaat";
-            echo " van " . $zet->vanPositie->x . "," . $zet->vanPositie->y;
-            echo " naar " . $zet->naarPositie->x . "," . $zet->naarPositie->y . "\n\n";
+            echo " van " . $zet->getvanPositie()->getX() . "," . $zet->getvanPositie()->getY();
+            echo " naar " . $zet->getnaarPositie()->getX() . "," . $zet->getnaarPositie()->getY() . "\n\n";
 
             // voer de zet uit
             $this->bord->voerZetUit($zet, $huidigeSpeler, $this);

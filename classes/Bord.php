@@ -2,6 +2,9 @@
 
 class Bord
 {
+    private const BORD_BREEDTE = 10;
+    private const BORD_HOOGTE  = 10;
+
     private array $vakjes = [];
     
     public function __construct()
@@ -34,7 +37,7 @@ class Bord
         return $this->vakjes;
     }
 
-    public function getVakje(int $x, int $y): Vak
+    public function getVakje(int $x, int $y): ?Vak
     {
         return $this->vakjes[$y][$x];
     }
@@ -111,20 +114,20 @@ class Bord
 
     public function voerZetUit(Zet $zet, string $speler, DamSpel $damspel): void
     {
-        $start = $zet->vanPositie;
-        $eind = $zet->naarPositie;
+        $start = $zet->getnaarPositie();
+        $eind = $zet->getnaarPositie();
 
         // Verplaats de steen
-        $this->vakjes[$eind->y][$eind->x]->steen = $this->vakjes[$start->y][$start->x]->steen;
-        $this->vakjes[$start->y][$start->x]->steen = null;
+        $this->vakjes[$eind->getY()][$eind->getX()]->steen = $this->vakjes[$start->getY()][$start->getX()]->steen;
+        $this->vakjes[$start->getY()][$start->getX()]->steen = null;
 
         // Controleer of er een steen is geslagen
-        $dx = abs($eind->x - $start->x);
-        $dy = abs($eind->y - $start->y);
+        $dx = abs($eind->getX() - $start->getX());
+        $dy = abs($eind->getY() - $start->getY());
 
         if ($dx === 2 && $dy === 2) { // Bij een sprong van 2
-            $tussenX = ($start->x + $eind->x) / 2;
-            $tussenY = ($start->y + $eind->y) / 2;
+            $tussenX = ($start->getX() + $eind->getX()) / 2;
+            $tussenY = ($start->getY() + $eind->getY()) / 2;
 
             // Verwijder de geslagen steen
             $this->vakjes[$tussenY][$tussenX]->steen = null;
