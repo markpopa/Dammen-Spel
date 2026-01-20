@@ -6,12 +6,12 @@ class RegelControleur
 {
     public function isZetGeldig(Zet $zet, Bord $bord, string $speler): bool
     {
-        $start = $zet->vanPositie;
-        $eind = $zet->naarPositie;
+        $start = $zet->getvanPositie();
+        $eind = $zet->getnaarPositie();
 
         // Haal de vakken op uit het bord-array
-        $startVak = $bord->vakjes[$start->y][$start->x];
-        $eindVak = $bord->vakjes[$eind->y][$eind->x];
+        $startVak = $bord->getVakjes()[$start->getY()][$start->getX()];
+        $eindVak = $bord->getVakjes()[$eind->getY()][$eind->getX()];
 
         // 1. Controleer of er een steen op de startpositie staat
         if ($startVak->steen === null) {
@@ -34,8 +34,8 @@ class RegelControleur
         }
 
         // 4. Controleer of de zet diagonaal is
-        $dx = abs($eind->x - $start->x);
-        $dy = abs($eind->y - $start->y);
+        $dx = abs($eind->getX() - $start->getX());
+        $dy = abs($eind->getY() - $start->getY());
 
         if ($dx !== $dy || $dx > 2) {
             echo "Fout: Een zet moet diagonaal en maximaal 2 stappen zijn." . PHP_EOL;
@@ -43,20 +43,20 @@ class RegelControleur
         }
 
         // 5. Controleer of de steen vooruit beweegt (voor niet-dammen)
-        if ($speler === 'wit' && $eind->y >= $start->y) {
+        if ($speler === 'wit' && $eind->getY() >= $start->getY()) {
             echo "Fout: Witte stenen mogen alleen omhoog bewegen." . PHP_EOL;
             return false;
         }
-        if ($speler === 'zwart' && $eind->y <= $start->y) {
+        if ($speler === 'zwart' && $eind->getY() <= $start->getY()) {
             echo "Fout: Zwarte stenen mogen alleen omlaag bewegen." . PHP_EOL;
             return false;
         }
 
         // 6. Controleer of een vijandelijke steen geslagen wordt bij een sprong van 2
         if ($dx === 2) {
-            $tussenX = ($start->x + $eind->x) / 2;
-            $tussenY = ($start->y + $eind->y) / 2;
-            $tussenVak = $bord->vakjes[$tussenY][$tussenX];
+            $tussenX = ($start->getX() + $eind->getX()) / 2;
+            $tussenY = ($start->getY() + $eind->getY()) / 2;
+            $tussenVak = $bord->getVakjes()[$tussenY][$tussenX];
 
             if ($tussenVak->steen === null || $tussenVak->steen->kleur === $speler) {
                 echo "Fout: Bij een sprong van 2 moet je een vijandelijke steen slaan." . PHP_EOL;
