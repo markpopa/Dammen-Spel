@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class RegelControleur
+class RegelController
 {
     public function isZetGeldig(Zet $zet, Bord $bord, string $speler): bool
     {

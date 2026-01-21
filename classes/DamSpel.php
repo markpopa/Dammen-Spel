@@ -6,7 +6,7 @@ class DamSpel
 {
     private Bord $bord;
     private $userInterface;
-    private $regelControleur;
+    private $RegelController;
     private int $spelerAanDeBeurt; // Index van de speler
     private array $spelers = ['wit', 'zwart'];
 
@@ -14,7 +14,7 @@ class DamSpel
     {
         $this->bord = new Bord();
         $this->userInterface = new UserInterface();
-        $this->regelControleur = new RegelControleur();
+        $this->RegelController = new RegelController();
         $this->spelerAanDeBeurt = 0; // Wit begint
     }
 
@@ -35,7 +35,7 @@ class DamSpel
             // Vraag om zet
             $zet = $this->userInterface->vraagSpelerOmZet($huidigeSpeler);
 
-            if (!$this->regelControleur->isZetGeldig($zet, $this->bord, $huidigeSpeler)) {
+            if (!$this->RegelController->isZetGeldig($zet, $this->bord, $huidigeSpeler)) {
                 echo "Deze zet is niet geldig! Probeer het opnieuw.\n";
                 continue;
             }
