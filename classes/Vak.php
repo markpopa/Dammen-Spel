@@ -32,6 +32,4 @@ class Vak
     {
         return $this->steen === null;
     }
-
-
 }

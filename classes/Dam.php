@@ -8,5 +8,4 @@ class Dam extends AbstractSteen
     {
         return true;
     }
-
 }

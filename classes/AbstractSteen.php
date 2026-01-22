@@ -17,5 +17,4 @@ abstract class AbstractSteen
     }
 
     abstract public function kanAchteruitSlaan(): bool;
-
 }

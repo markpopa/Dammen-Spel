@@ -8,5 +8,4 @@ class Steen extends AbstractSteen
     {
         return false;
     }
-
 }

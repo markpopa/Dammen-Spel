@@ -94,7 +94,7 @@ class Bord
         echo PHP_EOL;
     }
 
-    public function voerZetUit(Zet $zet, string $speler, DamSpel $damspel): void
+    public function voerZetUit(Zet $zet): void
     {
         $start = $zet->getVanPositie();
         $eind  = $zet->getNaarPositie();
