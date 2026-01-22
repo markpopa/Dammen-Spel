@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 class RegelDiagonaleZet implements RegelInterface
 {
-    public function check(Zet $zet, Bord $bord, string $huidigeSpeler): bool
+    public function check(Zet $zet, Bord $_bord, string $_huidigeSpeler): bool
     {
         $start = $zet->getVanPositie();
         $eind  = $zet->getNaarPositie();

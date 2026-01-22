@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 class RegelEindPositieLeeg implements RegelInterface
 {
-    public function check(Zet $zet, Bord $bord, string $huidigeSpeler): bool
+    public function check(Zet $zet, Bord $bord, string $_huidigeSpeler): bool
     {
         $eind = $zet->getNaarPositie();
         $steenOpEind = $bord->getSteenOpPositie($eind);
