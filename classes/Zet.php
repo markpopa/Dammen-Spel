@@ -7,18 +7,18 @@ class Zet
     private Positie $vanPositie;
     private Positie $naarPositie;
 
-    private function __construct(Positie $vanPositie, Positie $naarPositie)
+    public function __construct(Positie $vanPositie, Positie $naarPositie)
     {
         $this->vanPositie = $vanPositie;
         $this->naarPositie = $naarPositie;
     }
 
-    public function getvanPositie()
+    public function getVanPositie(): Positie
     {
         return $this->vanPositie;
     }
 
-    public function getnaarPositie()
+    public function getNaarPositie(): Positie
     {
         return $this->naarPositie;
     }

@@ -7,7 +7,7 @@ class Positie
     private int $x;
     private int $y;
 
-    private function __construct(int $x, int $y)
+    public function __construct(int $x, int $y)
     {
         $this->x = $x;
         $this->y = $y;

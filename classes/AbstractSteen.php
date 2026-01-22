@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 abstract class AbstractSteen
 {
-    private string $kleur;
+    protected string $kleur;
 
-    private function __construct(string $kleur)
+    public function __construct(string $kleur)
     {
         $this->kleur = $kleur;
     }

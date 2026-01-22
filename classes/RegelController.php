@@ -1,6 +1,14 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/Regels/RegelInterface.php';
+require_once __DIR__ . '/Regels/RegelSteenOpStartpositie.php';
+require_once __DIR__ . '/Regels/RegelJuisteSpeler.php';
+require_once __DIR__ . '/Regels/RegelEindPositieLeeg.php';
+require_once __DIR__ . '/Regels/RegelDiagonaleZet.php';
+require_once __DIR__ . '/Regels/RegelSteenBeweegtVooruit.php';
+require_once __DIR__ . '/Regels/RegelSlaanBijSprong.php';
+
 class RegelController
 {
     /** @var RegelInterface[] */
