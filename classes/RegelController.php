@@ -23,7 +23,6 @@ class RegelController
             new RegelDiagonaleZet(),
             new RegelSteenBeweegtVooruit(),
             new RegelSlaanBijSprong(),
-            // new RegelSlaanVerplicht(), // later (needs board scan)
         ];
     }
 
