@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 class RegelEindPositieLeeg implements RegelInterface
 {
-    public function check(Zet $zet, Bord $bord, string $_huidigeSpeler): bool
+    public function check(Zet $zet, Bord $bord, string $huidigeSpeler): bool
     {
         $eind = $zet->getNaarPositie();
         $steenOpEind = $bord->getSteenOpPositie($eind);
+
+        unset($huidigeSpeler);
 
         if ($steenOpEind !== null) {
             echo "Fout: De eindpositie is niet leeg." . PHP_EOL;

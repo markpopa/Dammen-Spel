@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 class RegelDiagonaleZet implements RegelInterface
 {
-    public function check(Zet $zet, Bord $_bord, string $_huidigeSpeler): bool
+    public function check(Zet $zet, Bord $bord, string $huidigeSpeler): bool
     {
         $start = $zet->getVanPositie();
         $eind  = $zet->getNaarPositie();
+
+        unset($bord, $huidigeSpeler);
 
         $dx = abs($eind->getX() - $start->getX());
         $dy = abs($eind->getY() - $start->getY());
